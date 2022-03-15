@@ -1,0 +1,139 @@
+#playerboard {
+    
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+    justify-content: center;
+    padding: 20px;
+}
+#compboard {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+    justify-content: center;
+    padding: 20px;
+}
+.reset {
+    margin: 10px;
+}
+.tile {
+background: rgb(59,236,119);
+background: radial-gradient(circle, rgb(225, 240, 230) 12%, rgb(14, 154, 197) 58%);
+border: 2px solid lightblue;
+font-size: small;
+ 
+}
+.ctile {
+background: rgb(59,236,119);
+background: radial-gradient(circle, rgb(225, 240, 230) 12%, rgb(14, 154, 197) 58%);
+border: 2px solid lightblue;
+font-size: small;
+}
+
+.boards {
+    text-align: center;
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+    margin: 0 auto;
+    border: 10px;
+    
+}
+.boats {
+    text-align: center;
+    display: flex;
+    justify-content: right;
+}
+
+#hit {
+background: rgb(237,159,5);
+background: radial-gradient(circle, rgba(237,159,5,1) 12%, rgba(232,16,16,1) 75%);
+}
+#miss {
+background: rgb(13,206,223);
+background: linear-gradient(90deg, rgba(13,206,223,1) 0%, rgba(11,182,220,1) 19%, rgba(8,130,230,1) 38%, rgba(7,104,235,1) 66%, rgba(1,0,255,1) 100%);
+}
+.innertext{
+    display: center;
+    font-size: larger;
+    color: navy
+    
+}
+#playership {
+background: rgb(26,26,29);
+background: radial-gradient(circle, rgba(26,26,29,1) 12%, rgba(105,100,110,1) 71%);
+}
+#ship {
+    background: rgb(26,26,29);
+background: radial-gradient(circle, rgba(26,26,29,1) 12%, rgba(119,23,215,1) 71%);
+}
+body {
+    background-color: lightgrey;
+    background-image: url("ocean.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.playerboats{
+    text-align: center;
+    text-align: left;
+    margin-right: 290px;
+    color: navy
+    
+    
+}
+.computerboats{
+    right: 0px;
+    position: relative;
+    padding-right: 365px;
+    text-align: left;
+    color: navy;
+}
+h3 {
+    text-align: center;
+    font-size: smaller;
+}
+span {
+    color: rgb(10, 248, 89)
+}
+h1 {
+    text-align: center;
+    padding: 5px;
+    font-size: xx-large;
+    border: 10px solid navy;
+    margin-right: 560px;
+     margin-left: 560px;
+     color: rgb(204, 12, 12)
+}
+.reset {
+    justify-content: center;
+    background-color: rgb(204, 12, 12);
+    width: 100px;
+    height: 75px;
+    font-size: large;
+}
+.trymove {
+    background-color: rgb(204, 12, 12);
+}
+.scoreboardcss {
+    
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+}
+button {
+    background-color: rgb(204, 12, 12);
+}
+input {
+    background-color: lightblue;
+}
+
+.instructions {
+    text-align: left;
+}
+
+.one {
+    color: navy
+}
