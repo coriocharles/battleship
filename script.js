@@ -316,9 +316,10 @@ function computerAttackTarget() {
     let successfulAttack = false
     try {
     while (successfulAttack == false) {
-        direction = Math.floor(Math.random() * 4)
+        direction = Math.floor(Math.random() * 5)
+        console.log(`the direction is ${direction}`)
         if (currentTarget == "pAC") {
-            compattempt = Math.floor(Math.random() * 4)
+            compattempt = Math.floor(Math.random() * 6)
             if (direction == 1) {
                 if (pboard[targetrow - compattempt][targetcolumn].id == "") {
                     pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
@@ -371,7 +372,7 @@ function computerAttackTarget() {
             }
     }
         if (currentTarget == "pSub") {
-            compattempt = Math.floor(Math.random() * 2)
+            compattempt = Math.floor(Math.random() * 3)
             if (direction == 1) {
                 if (pboard[targetrow - compattempt][targetcolumn].id == "") {
                     pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
@@ -424,7 +425,7 @@ function computerAttackTarget() {
             }
         }
         if (currentTarget == "pBS") {
-            compattempt = Math.floor(Math.random() * 3)
+            compattempt = Math.floor(Math.random() * 4)
             if (direction == 1) {
                 if (pboard[targetrow - compattempt][targetcolumn].id == "") {
                     pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
@@ -479,7 +480,7 @@ function computerAttackTarget() {
 
         }
         if (currentTarget == "pSB") {
-            compattempt = Math.floor(Math.random() * 1)
+            compattempt = Math.floor(Math.random() * 2)
             if (direction == 1) {
                 if (pboard[targetrow - compattempt][targetcolumn].id == "") {
                     pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
@@ -535,6 +536,7 @@ function computerAttackTarget() {
         }
 }
 } catch(err) {
+    console.log(err)
     computerAttackTarget()
 }
 }
@@ -694,7 +696,7 @@ function placeSBHorizontal(num) {
                 if (scoutPlaced == false && pboard[row][column].innerText == String(num) && pboard[row][column].id != "playership" && pboard[row][column + 1].id != "playership") {
                     pboard[row][column].setAttribute("id", "playership")
                     pboard[row][column + 1].setAttribute("id", "playership")
-                    pboard[row][column].classList.add("class", "cSB")
+                    pboard[row][column].classList.add("class", "pSB")
                     pboard[row][column + 1].classList.add("class", "pSB")
                     scoutPlaced = true
                 }
@@ -847,7 +849,7 @@ function placeACHorizontal(num) {
                         pboard[row][column + 1].classList.add("class", "pAC")
                         pboard[row][column + 2].classList.add("class", "pAC")
                         pboard[row][column + 3].classList.add("class", "pAC")
-                        pboard[row][column + 3].classList.add("class", "pAC")
+                        pboard[row][column + 4].classList.add("class", "pAC")
                         ACPlaced = true
                     }
                 }
