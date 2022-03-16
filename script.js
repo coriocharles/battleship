@@ -84,6 +84,8 @@ pboard.push(array7)
 pboard.push(array8)
 
 let currentTarget = ""
+let targetrow = 0
+let targetcolumn = 0
 let cboard = []
 let carray1 = []
 let carray2 = []
@@ -149,12 +151,15 @@ trymove.addEventListener("click", event => {
         if (currentTarget == ""){
             computerAttack()
         } else {
-            computerAttackTarget(currentTarget)
+            computerAttackTarget()
         }
         gameOver()
     }} else {
         alert("Please enter a valid move!")
     }
+    console.log(currentTarget)
+    console.log(targetrow)
+    console.log(targetcolumn)
 }
 })
 
@@ -227,38 +232,315 @@ function gameOver() {
 }
 
 //Computer attack if no target is currently selected
-function computerAttack(){
+// function computerAttack(){
+//     let successfulAttack = false
+//     while (successfulAttack == false) {
+//     compattempt = Math.floor(Math.random() * 64)
+//     for (let i = 0; i < computerTiles.length; i++) {
+//         if (playerTiles[i].innerText == String(compattempt) && playerTiles[i].id == "playership") {
+//             playerTiles[i].setAttribute("id", "hit")
+//             if (playerTiles[i].classList.contains("pSB")) {
+//                 pSBlife -= 1
+//                 successfulAttack = true
+//                 currentTarget = "pSB"
+//             }
+//             if (playerTiles[i].classList.contains("pSub")) {
+//                 pSublife -= 1
+//                 successfulAttack = true
+//                 currentTarget = "pSub"
+//             }
+//             if (playerTiles[i].classList.contains("pBS")) {
+//                 pBSlife -= 1
+//                 successfulAttack = true
+//                 currentTarget = "pBS"
+//             }
+//             if (playerTiles[i].classList.contains("pAC")) {
+//                 pAClife -= 1
+//                 successfulAttack = true
+//                 currentTarget = "pAC"
+//             }
+//         }  else if (playerTiles[i].innerText == String(compattempt) && playerTiles[i].id == "") {
+//             playerTiles[i].setAttribute("id", "miss")
+//             successfulAttack = true
+//         }
+// }}}
+function computerAttack() {
     let successfulAttack = false
     while (successfulAttack == false) {
-    compattempt = Math.floor(Math.random() * 64)
-    for (let i = 0; i < computerTiles.length; i++) {
-        if (playerTiles[i].innerText == String(compattempt) && playerTiles[i].id == "playership") {
-            playerTiles[i].setAttribute("id", "hit")
-            if (playerTiles[i].classList.contains("pSB")) {
-                pSBlife -= 1
+        compattempt = Math.floor(Math.random() * 64)
+        for (let i = 0; i < pboard.length; i++) {
+            for (let j = 0; j < pboard[i].length; j++) {
+            if (pboard[i][j].innerText == String(compattempt) && pboard[i][j].id == "playership") {
+                pboard[i][j].setAttribute("id", "hit")
+                if (pboard[i][j].classList.contains("pSB")) {
+                    pSBlife -= 1
+                    successfulAttack = true
+                    currentTarget = "pSB"
+                    targetrow= i
+                    targetcolumn = j
+                }
+                if (pboard[i][j].classList.contains("pSub")) {
+                    pSublife -= 1
+                    successfulAttack = true
+                    currentTarget = "pSub"
+                    targetrow = i
+                    targetcolumn = j
+                }
+                if (pboard[i][j].classList.contains("pBS")) {
+                    pBSlife -= 1
+                    successfulAttack = true
+                    currentTarget = "pBS"
+                    targetrow= i
+                    targetcolumn = j
+                }
+                if (pboard[i][j].classList.contains("pAC")) {
+                    pAClife -= 1
+                    successfulAttack = true
+                    currentTarget = "pAC"
+                    targetrow = i
+                    targetcolumn = j
+                }
+            } else if (pboard[i][j].innerText == String(compattempt) && pboard[i][j].id == "") {
+                pboard[i][j].setAttribute("id", "miss")
                 successfulAttack = true
-                currentTarget = "pSB"
             }
-            if (playerTiles[i].classList.contains("pSub")) {
-                pSublife -= 1
-                successfulAttack = true
-                currentTarget = "pSub"
-            }
-            if (playerTiles[i].classList.contains("pBS")) {
-                pBSlife -= 1
-                successfulAttack = true
-                currentTarget = "pBS"
-            }
-            if (playerTiles[i].classList.contains("pAC")) {
-                pAClife -= 1
-                successfulAttack = true
-                currentTarget = "pAC"
-            }
-        }  else if (playerTiles[i].innerText == String(compattempt) && playerTiles[i].id == "") {
-            playerTiles[i].setAttribute("id", "miss")
-            successfulAttack = true
         }
-}}}
+    }
+}
+console.log("working")
+}
+
+// computer attack AI when it has a target
+function computerAttackTarget() {
+    console.log("attempting attack")
+    let successfulAttack = false
+    try {
+    while (successfulAttack == false) {
+        direction = Math.floor(Math.random() * 4)
+        if (currentTarget == "pAC") {
+            compattempt = Math.floor(Math.random() * 4)
+            if (direction == 1) {
+                if (pboard[targetrow - compattempt][targetcolumn].id == "") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow - compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow - compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pAClife -= 1
+                    if (pAClife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+            if (direction == 2) {
+                if (pboard[targetrow + compattempt][targetcolumn].id == "") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow + compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow + compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pAClife -= 1
+                    if (pAClife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 3) {
+                if (pboard[targetrow][targetcolumn - compattempt].id == "") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn - compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn - compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pAClife -= 1
+                    if (pAClife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 4) {
+                if (pboard[targetrow][targetcolumn + compattempt].id == "") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn + compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn + compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pAClife -= 1
+                    if (pAClife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+    }
+        if (currentTarget == "pSub") {
+            compattempt = Math.floor(Math.random() * 2)
+            if (direction == 1) {
+                if (pboard[targetrow - compattempt][targetcolumn].id == "") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow - compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow - compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSublife-= 1
+                    if (pSublife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+            if (direction == 2) {
+                if (pboard[targetrow + compattempt][targetcolumn].id == "") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow + compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow + compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSublife -= 1
+                    if (pSublife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 3) {
+                if (pboard[targetrow][targetcolumn - compattempt].id == "") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn - compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn - compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSublife -= 1
+                    if (pSublife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 4) {
+                if (pboard[targetrow][targetcolumn + compattempt].id == "") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn + compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn + compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSublife -= 1
+                    if (pSublife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+        }
+        if (currentTarget == "pBS") {
+            compattempt = Math.floor(Math.random() * 3)
+            if (direction == 1) {
+                if (pboard[targetrow - compattempt][targetcolumn].id == "") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow - compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow - compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pBSlife -= 1
+                    if (pBSlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+            if (direction == 2) {
+                if (pboard[targetrow + compattempt][targetcolumn].id == "") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow + compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow + compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pBSlife -= 1
+                    if (pBSlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 3) {
+                if (pboard[targetrow][targetcolumn - compattempt].id == "") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn - compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn - compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pBSlife -= 1
+                    if (pBSlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 4) {
+                if (pboard[targetrow][targetcolumn + compattempt].id == "") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn + compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn + compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pBSlife -= 1
+                    if (pBSlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+
+
+        }
+        if (currentTarget == "pSB") {
+            compattempt = Math.floor(Math.random() * 1)
+            if (direction == 1) {
+                if (pboard[targetrow - compattempt][targetcolumn].id == "") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow - compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow - compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow - compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSBlife -= 1
+                    if (pSBlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+            if (direction == 2) {
+                if (pboard[targetrow + compattempt][targetcolumn].id == "") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow + compattempt][targetcolumn].classList.contains(currentTarget) && pboard[targetrow + compattempt][targetcolumn].id != "hit") {
+                    pboard[targetrow + compattempt][targetcolumn].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSBlife -= 1
+                    if (pSBlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 3) {
+                if (pboard[targetrow][targetcolumn - compattempt].id == "") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn - compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn - compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn - compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSBlife -= 1
+                    if (pSBlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            } if (direction == 4) {
+                if (pboard[targetrow][targetcolumn + compattempt].id == "") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "miss")
+                    successfulAttack = true
+                } else if (pboard[targetrow][targetcolumn + compattempt].classList.contains(currentTarget) && pboard[targetrow][targetcolumn + compattempt].id != "hit") {
+                    pboard[targetrow][targetcolumn + compattempt].setAttribute("id", "hit")
+                    successfulAttack = true
+                    pSBlife -= 1
+                    if (pSBlife <= 0) {
+                        currentTarget = ""
+                    }
+                }
+            }
+
+
+        }
+}
+} catch(err) {
+    computerAttackTarget()
+}
+}
+
+
+
 
 //Starting new game
 function resetGame() {
@@ -318,6 +600,8 @@ function resetGame() {
     setComputerBS()}
     while (cACset == false) {
     setComputerAC()}
+
+    
 }
 
 
