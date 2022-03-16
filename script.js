@@ -331,7 +331,7 @@ function computerAttackTarget() {
                     if (pAClife <= 0) {
                         currentTarget = ""
                     }
-                }
+                } 
             }
             if (direction == 2) {
                 if (pboard[targetrow + compattempt][targetcolumn].id == "") {
@@ -568,10 +568,10 @@ function resetGame() {
     cstatusSub.innerText = "Alive"
     cstatusBS.innerText = "Alive"
     cstatusAC.innerText = "Alive"
-    cstatusSB.style.color = "green"
-    cstatusSub.style.color = "green"
-    cstatusBS.style.color = "green"
-    cstatusAC.style.color = "green"
+    cstatusSB.style.color = "lightgreen"
+    cstatusSub.style.color = "lightgreen"
+    cstatusBS.style.color = "lightgreen"
+    cstatusAC.style.color = "lightgreen"
     for (let i = 0; i < computerTiles.length; i++) {
         if (computerTiles[i].id == "ship" || computerTiles[i].id == "miss" || computerTiles[i].id == "hit") {
             computerTiles[i].setAttribute("id", "")

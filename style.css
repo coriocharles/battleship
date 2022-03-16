@@ -1,5 +1,4 @@
 #playerboard {
-    
     display: grid;
     grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
     grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
@@ -37,13 +36,10 @@ font-size: small;
     justify-content: center;
     margin: 0 auto;
     border: 10px;
+    position: relative
     
 }
-.boats {
-    text-align: center;
-    display: flex;
-    justify-content: right;
-}
+
 
 #hit {
 background: rgb(237,159,5);
@@ -77,42 +73,41 @@ body {
 }
 
 .playerboats{
-    text-align: center;
     text-align: left;
-    margin-right: 290px;
-    color: navy
+    color: navy;
+    padding: 10px;
     
     
 }
 .computerboats{
-    right: 0px;
-    position: relative;
-    padding-right: 365px;
     text-align: left;
     color: navy;
+    padding: 10px;
 }
 h3 {
     text-align: center;
     font-size: smaller;
 }
 span {
-    color: rgb(10, 248, 89)
+    color: lightgreen
 }
 h1 {
     text-align: center;
     padding: 5px;
     font-size: xx-large;
-    border: 10px solid navy;
-    margin-right: 560px;
-     margin-left: 560px;
-     color: rgb(204, 12, 12)
+    border: 13px solid navy;
+    color: rgb(204, 12, 12);
+    margin: auto 30vw;
+    border-radius: 25px
 }
+
 .reset {
     justify-content: center;
     background-color: rgb(204, 12, 12);
-    width: 100px;
-    height: 75px;
+    width: 200px;
+    height: 50px;
     font-size: large;
+
 }
 .trymove {
     background-color: rgb(204, 12, 12);
@@ -125,6 +120,8 @@ h1 {
 }
 button {
     background-color: rgb(204, 12, 12);
+    width: 100px;
+    border-radius: 25px
 }
 input {
     background-color: lightblue;
@@ -132,8 +129,19 @@ input {
 
 .instructions {
     text-align: left;
+    border: 3px solid navy;
+    padding: 20px;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 25px
 }
 
 .one {
-    color: navy
+    color: navy;
+   
 }
+
+ul {
+    color: rgb(204, 12, 12);
+}
+

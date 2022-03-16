@@ -14,9 +14,10 @@
     <h3>
         THE ICONIC NAVY WAR GAME...
     </h3>
+    <div class="border">
     <h1>BATTLESHIP
     </h1>
-    
+    </div>
     <h3 class="playerwins"></h3>
     <h3 class="computerwins"></h3>
     <div class="scoreboardcss">
@@ -34,7 +35,36 @@
         <ul>1. Click "Start New Game" Above</ul>
         <ul>2. Position your ships.</ul>
         <ul>3. Enter coordinates for artilley strike on enemies boats.</ul>
-        <ul>4. When the games ends, repeat the process!</ul>
+        <ul>4. Keep track of which of the enemy's boats you've sunk below.</ul>
+        <ul>5. When the games ends, start another!</ul>
+        <div class="boats">
+            <div class="playerboats">
+                <div>Place 2-Tile Scout Boat</div>
+                <input type="text" id="inputSB">
+                <button class="setSBv">Vertical</button>
+                <button class="setSBh">Horizontal</button>
+                <div>Place 3-Tile Submarine</div>
+                <input type="text" id="inputSub">
+                <button class="setSubv">Vertical</button>
+                <button class="setSubh">Horizontal</button>
+                <div>Place 4-Tile Battleship</div>
+                <input type="text" id="inputBS">
+                <button class="setBSv">Vertical</button>
+                <button class="setBSh">Horizontal</button>
+                <div>Place 5-Tile Aircraft Carrier</div>
+                <input type="text" id="inputAC">
+                <button class="setACv">Vertical</button>
+                <button class="setACh">Horizontal</button>
+        
+            </div>
+            <div class="computerboats">
+                <div>Enemy's Scout Boat: <span class="statuscSB">Alive</span></div>
+                <div>Enemy's Submarine: <span class="statuscSub">Alive</span></div>
+                <div>Enemy's Battleship: <span class="statuscBS">Alive</span></div>
+                <div>Enemy's Aircraft Carrier: <span class="statuscAC">Alive</span></div>
+        
+            </div>
+        </div>
     </div>
     <div class="innertext">
     Your Board
@@ -173,35 +203,9 @@
             <div class="ctile" id="">63</div>
             <div class="ctile" id="">64</div>
     </div>
+    
     </div>
-    <div class ="boats">
-    <div class="playerboats">
-        <div>Place 2-Tile Scout Boat</div>
-        <input type="text" id="inputSB">
-        <button class="setSBv">Vertical</button>
-        <button class="setSBh">Horizontal</button>
-        <div>Place 3-Tile Submarine</div>
-        <input type="text" id="inputSub">
-        <button class="setSubv">Vertical</button>
-        <button class="setSubh">Horizontal</button>
-        <div>Place 4-Tile Battleship</div>
-        <input type="text" id="inputBS">
-        <button class="setBSv">Vertical</button>
-        <button class="setBSh">Horizontal</button>
-        <div>Place 5-Tile Aircraft Carrier</div>
-        <input type="text" id="inputAC">
-        <button class="setACv">Vertical</button>
-        <button class="setACh">Horizontal</button>
-        
-    </div>
-    <div class="computerboats">
-        <div>Enemy's Scout Boat: <span class="statuscSB">Alive</span></div>
-        <div>Enemy's Submarine: <span class="statuscSub">Alive</span></div>
-        <div>Enemy's Battleship: <span class="statuscBS">Alive</span></div>
-        <div>Enemy's Aircraft Carrier: <span class="statuscAC">Alive</span></div>
-
-    </div>
-    </div>
+    
 </body>
 <script src="script.js"></script>
 </html>
