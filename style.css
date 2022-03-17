@@ -1,16 +1,23 @@
+
 #playerboard {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
-    justify-content: center;
-    padding: 20px;
+    grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px;
+    grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px;
+    padding-right: 30px;
+    padding-top: 5px;
+    width: 20vw;
+    justify-content: right;
+    float: right
 }
 #compboard {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
-    justify-content: center;
-    padding: 20px;
+    grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px;
+    grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px;
+    padding-left: 30px;
+    padding-top: 5px;
+    width: 20vw;
+    justify-content: left;
+    float:right
 }
 .reset {
     margin: 10px;
@@ -18,25 +25,24 @@
 .tile {
 background: rgb(59,236,119);
 background: radial-gradient(circle, rgb(225, 240, 230) 12%, rgb(14, 154, 197) 58%);
-border: 2px solid lightblue;
+border: 1px solid rgb(69, 182, 219);
 font-size: small;
  
 }
 .ctile {
 background: rgb(59,236,119);
 background: radial-gradient(circle, rgb(225, 240, 230) 12%, rgb(14, 154, 197) 58%);
-border: 2px solid lightblue;
+border: 1px solid rgb(69, 182, 219);
 font-size: small;
 }
 
 .boards {
-    text-align: center;
-    display: flex;
-    padding-top: 10px;
+    display: inline-flex;
     justify-content: center;
+    padding-top: 10px;
+    text-align: center;
     margin: 0 auto;
-    border: 10px;
-    position: relative
+   
     
 }
 
@@ -50,7 +56,6 @@ background: rgb(13,206,223);
 background: linear-gradient(90deg, rgba(13,206,223,1) 0%, rgba(11,182,220,1) 19%, rgba(8,130,230,1) 38%, rgba(7,104,235,1) 66%, rgba(1,0,255,1) 100%);
 }
 .innertext{
-    display: center;
     font-size: larger;
     color: navy
     
@@ -59,10 +64,10 @@ background: linear-gradient(90deg, rgba(13,206,223,1) 0%, rgba(11,182,220,1) 19%
 background: rgb(26,26,29);
 background: radial-gradient(circle, rgba(26,26,29,1) 12%, rgba(105,100,110,1) 71%);
 }
-#ship {
+/* #ship {
     background: rgb(26,26,29);
-background: radial-gradient(circle, rgba(26,26,29,1) 12%, rgba(119,23,215,1) 71%);
-}
+background: radial-gradient(circle, rgba(26,26,29,1) 12%, rgba(119,23,215,1) 71%); */
+/* } */
 body {
     background-color: lightgrey;
     background-image: url("ocean.jpeg");
@@ -70,39 +75,50 @@ body {
     background-repeat: no-repeat;
     color: black;
     font-family: 'Nanum Gothic', sans-serif;
+    min-width: 100vw;
+    min-height: 100vh;
 }
-
+.boards{
+    text-align: center;
+    max-width: 100vw;
+}
 .playerboats{
-    text-align: left;
     color: navy;
-    padding: 10px;
-    
-    
+    width: 30vw;
+    margin-top: 100px;
+    text-align: right;
+    padding: 2px;
 }
 .computerboats{
-    text-align: left;
     color: navy;
-    padding: 10px;
+    width: 30vw;
+    margin-top: 140px;
+    text-align: left;
+}
+div {
 }
 h3 {
-    text-align: center;
+    font-size: smaller;
+}
+h2 {
     font-size: smaller;
 }
 span {
     color: lightgreen
 }
 h1 {
-    text-align: center;
     padding: 5px;
     font-size: xx-large;
-    border: 13px solid navy;
+    border: 15px solid navy;
     color: rgb(204, 12, 12);
-    margin: auto 30vw;
-    border-radius: 25px
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    margin-left: 30vw;
+    margin-right: 30vw;
 }
 
 .reset {
-    justify-content: center;
     background-color: rgb(204, 12, 12);
     width: 200px;
     height: 50px;
@@ -113,35 +129,52 @@ h1 {
     background-color: rgb(204, 12, 12);
 }
 .scoreboardcss {
-    
-    justify-content: center;
     text-align: center;
-    margin: 20px;
 }
 button {
     background-color: rgb(204, 12, 12);
     width: 100px;
     border-radius: 25px
 }
+
+.innertext {
+    text-align: center;
+
+}
+
 input {
-    background-color: lightblue;
+    width: 40px;
 }
 
-.instructions {
-    text-align: left;
-    border: 3px solid navy;
-    padding: 20px;
-    display: inline-block;
-    margin: 10px;
-    border-radius: 25px
+#input {
+    width: 110px
 }
-
-.one {
+form {
+    text-align: center;
+    justify-content: center;
+    padding-top: 40px;
+    color: navy
+}
+.wins {
+    padding-top: 100px;
     color: navy;
-   
+    text-align: center;
+    justify-content: center;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    font-weight: bolder;
+    font-size: larger;
 }
 
-ul {
-    color: rgb(204, 12, 12);
+
+
+
+
+@media screen and (max-width: 800px) {
+  .wins, #playerboard, #computerboard, .playerboats, .computerboats {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
 }
+
+
 

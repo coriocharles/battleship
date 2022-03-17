@@ -9,63 +9,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h3>
-        THE ICONIC NAVY WAR GAME...
-    </h3>
     <div class="border">
     <h1>BATTLESHIP
     </h1>
     </div>
-    <h3 class="playerwins"></h3>
-    <h3 class="computerwins"></h3>
+
     <div class="scoreboardcss">
     <button class="reset">START NEW GAME</button>
-    
-    <form>
-        Target enemy location!
-        <input type="text" id="input" placeholder="Enter Coordinates" autocomplete="off">
-        <button class="trymove">FIRE</button>
-    </form>
     </div>
+
+
+
     <div class ="boards">
-    <div class="instructions"><span class="one">
-    How to Play:</span>
-        <ul>1. Click "Start New Game" Above</ul>
-        <ul>2. Position your ships.</ul>
-        <ul>3. Enter coordinates for artilley strike on enemies boats.</ul>
-        <ul>4. Keep track of which of the enemy's boats you've sunk below.</ul>
-        <ul>5. When the games ends, start another!</ul>
-        <div class="boats">
-            <div class="playerboats">
-                <div>Place 2-Tile Scout Boat</div>
-                <input type="text" id="inputSB">
-                <button class="setSBv">Vertical</button>
-                <button class="setSBh">Horizontal</button>
-                <div>Place 3-Tile Submarine</div>
-                <input type="text" id="inputSub">
-                <button class="setSubv">Vertical</button>
-                <button class="setSubh">Horizontal</button>
-                <div>Place 4-Tile Battleship</div>
-                <input type="text" id="inputBS">
-                <button class="setBSv">Vertical</button>
-                <button class="setBSh">Horizontal</button>
-                <div>Place 5-Tile Aircraft Carrier</div>
-                <input type="text" id="inputAC">
-                <button class="setACv">Vertical</button>
-                <button class="setACh">Horizontal</button>
-        
-            </div>
-            <div class="computerboats">
-                <div>Enemy's Scout Boat: <span class="statuscSB">Alive</span></div>
-                <div>Enemy's Submarine: <span class="statuscSub">Alive</span></div>
-                <div>Enemy's Battleship: <span class="statuscBS">Alive</span></div>
-                <div>Enemy's Aircraft Carrier: <span class="statuscAC">Alive</span></div>
-        
-            </div>
-        </div>
+    <div class="playerboats">
+        <div>Place 2-Tile Scout Boat&nbsp&nbsp&nbsp&nbsp</div>
+        <input type="text" id="inputSB">
+        <button class="setSBv">Vertical</button>
+        <button class="setSBh">Horizontal</button>
+        <div>Place 3-Tile Submarine&nbsp&nbsp&nbsp&nbsp</div>
+        <input type="text" id="inputSub">
+        <button class="setSubv">Vertical</button>
+        <button class="setSubh">Horizontal</button>
+        <div>Place 4-Tile Battleship&nbsp&nbsp&nbsp&nbsp&nbsp</div>
+        <input type="text" id="inputBS">
+        <button class="setBSv">Vertical</button>
+        <button class="setBSh">Horizontal</button>
+        <div>Place 5-Tile Aircraft Carrier</div>
+        <input type="text" id="inputAC">
+        <button class="setACv">Vertical</button>
+        <button class="setACh">Horizontal</button>
+    
     </div>
+    <div class="boards">
+    <div class="board1">
     <div class="innertext">
     Your Board
     </div>
@@ -134,10 +113,12 @@
         <div class="tile" id="">62</div>
         <div class="tile" id="">63</div>
         <div class="tile" id="">64</div>
-    </div><div class="innertext">
+    </div></div>
+    <div class="board2">
+        <div class="innertext">
         Computer Board
-    </div>
-    <div id = "compboard">
+        </div>
+         <div id = "compboard">
             <div class="ctile" id="">1</div>
             <div class="ctile" id="">2</div>
             <div class="ctile" id="">3</div>
@@ -202,10 +183,24 @@
             <div class="ctile" id="">62</div>
             <div class="ctile" id="">63</div>
             <div class="ctile" id="">64</div>
+    </div></div></div>
+    <div class="computerboats">
+            <div>Enemy's Scout Boat: <span class="statuscSB">Alive</span></div>
+            <div>Enemy's Submarine: <span class="statuscSub">Alive</span></div>
+            <div>Enemy's Battleship: <span class="statuscBS">Alive</span></div>
+            <div>Enemy's Aircraft Carrier: <span class="statuscAC">Alive</span></div>
     </div>
-    
     </div>
-    
+   </div>
+<form>
+    Target enemy location!
+    <input type="text" id="input" placeholder="Enter Coordinates" autocomplete="off">
+    <button class="trymove">FIRE</button>
+</form>
+    <div class="wins">
+        <h3 class="playerwins"></h3>
+        <h3 class="computerwins"></h3>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

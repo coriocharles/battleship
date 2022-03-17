@@ -149,9 +149,9 @@ trymove.addEventListener("click", event => {
     gameOver()
     if (!gameOver()) {
         if (currentTarget == ""){
-            computerAttack()
+            setTimeout(computerAttack, 1000)
         } else {
-            computerAttackTarget()
+            setTimeout(computerAttackTarget,1000)
         }
         gameOver()
     }} else {
@@ -179,18 +179,34 @@ function attack(text) {
             if (computerTiles[i].classList.contains("cSB")) {
                 cSBlife -=1
                 console.log(cSBlife)
+                if (cSBlife == 0) {
+                    alert("You sunk the enemy Scout Boat!")
+                }
+                
             }
             if (computerTiles[i].classList.contains("cSub")) {
                 cSublife -= 1
                 console.log(cSublife)
+                if (cSublife == 0) {
+                    alert("You sunk the enemy Sub!")
+                }
+                
             }
             if (computerTiles[i].classList.contains("cBS")) {
                 cBSlife -= 1
                 console.log(cBSlife)
+                if (cBSlife == 0) {
+                    alert("You sunk the enemy Battleship!")
+                }
+                
             }
             if (computerTiles[i].classList.contains("cAC")) {
                 cAClife -= 1
                 console.log(cAClife)
+                if (cAClife == 0) {
+                    alert("You sunk the enemy Aircraft Carrier!")
+                }
+                
             }
         } else if (computerTiles[i].innerText == text && computerTiles[i].id == "") {
             computerTiles[i].setAttribute("id", "miss")
@@ -331,6 +347,9 @@ function computerAttackTarget() {
                     if (pAClife <= 0) {
                         currentTarget = ""
                     }
+                    if (pAClife == 0) {
+                        alert("The enemy has sunk your Aircraft Carrier!")
+                    }
                 } 
             }
             if (direction == 2) {
@@ -344,6 +363,9 @@ function computerAttackTarget() {
                     if (pAClife <= 0) {
                         currentTarget = ""
                     }
+                    if (pAClife == 0) {
+                        alert("The enemy has sunk your Aircraft Carrier!")
+                    }
                 }
             } if (direction == 3) {
                 if (pboard[targetrow][targetcolumn - compattempt].id == "") {
@@ -356,6 +378,9 @@ function computerAttackTarget() {
                     if (pAClife <= 0) {
                         currentTarget = ""
                     }
+                    if (pAClife == 0) {
+                        alert("The enemy has sunk your Aircraft Carrier!")
+                    }
                 }
             } if (direction == 4) {
                 if (pboard[targetrow][targetcolumn + compattempt].id == "") {
@@ -367,6 +392,9 @@ function computerAttackTarget() {
                     pAClife -= 1
                     if (pAClife <= 0) {
                         currentTarget = ""
+                    }
+                    if (pAClife == 0) {
+                        alert("The enemy has sunk your Aircraft Carrier!")
                     }
                 }
             }
@@ -384,6 +412,9 @@ function computerAttackTarget() {
                     if (pSublife <= 0) {
                         currentTarget = ""
                     }
+                    if (pSublife == 0) {
+                        alert("The enemy has sunk your Sub!")
+                    }
                 }
             }
             if (direction == 2) {
@@ -397,6 +428,9 @@ function computerAttackTarget() {
                     if (pSublife <= 0) {
                         currentTarget = ""
                     }
+                    if (pSublife == 0) {
+                        alert("The enemy has sunk your Sub!")
+                    }
                 }
             } if (direction == 3) {
                 if (pboard[targetrow][targetcolumn - compattempt].id == "") {
@@ -409,6 +443,9 @@ function computerAttackTarget() {
                     if (pSublife <= 0) {
                         currentTarget = ""
                     }
+                    if (pSublife == 0) {
+                        alert("The enemy has sunk your Sub!")
+                    }
                 }
             } if (direction == 4) {
                 if (pboard[targetrow][targetcolumn + compattempt].id == "") {
@@ -420,6 +457,9 @@ function computerAttackTarget() {
                     pSublife -= 1
                     if (pSublife <= 0) {
                         currentTarget = ""
+                    }
+                    if (pSublife == 0) {
+                        alert("The enemy has sunk your Sub!")
                     }
                 }
             }
@@ -437,6 +477,9 @@ function computerAttackTarget() {
                     if (pBSlife <= 0) {
                         currentTarget = ""
                     }
+                    if (pBSlife == 0) {
+                        alert("The enemy has sunk your Battleship!")
+                    }
                 }
             }
             if (direction == 2) {
@@ -450,6 +493,9 @@ function computerAttackTarget() {
                     if (pBSlife <= 0) {
                         currentTarget = ""
                     }
+                    if (pBSlife == 0) {
+                        alert("The enemy has sunk your Battleship!")
+                    }
                 }
             } if (direction == 3) {
                 if (pboard[targetrow][targetcolumn - compattempt].id == "") {
@@ -462,6 +508,9 @@ function computerAttackTarget() {
                     if (pBSlife <= 0) {
                         currentTarget = ""
                     }
+                    if (pBSlife == 0) {
+                        alert("The enemy has sunk your Battleship!")
+                    }
                 }
             } if (direction == 4) {
                 if (pboard[targetrow][targetcolumn + compattempt].id == "") {
@@ -473,6 +522,9 @@ function computerAttackTarget() {
                     pBSlife -= 1
                     if (pBSlife <= 0) {
                         currentTarget = ""
+                    }
+                    if (pBSlife == 0) {
+                        alert("The enemy has sunk your Battleship!")
                     }
                 }
             }
@@ -492,6 +544,9 @@ function computerAttackTarget() {
                     if (pSBlife <= 0) {
                         currentTarget = ""
                     }
+                    if (pSBlife == 0) {
+                        alert("The enemy has sunk your Scout Boat!")
+                    }
                 }
             }
             if (direction == 2) {
@@ -505,6 +560,9 @@ function computerAttackTarget() {
                     if (pSBlife <= 0) {
                         currentTarget = ""
                     }
+                    if (pSBlife == 0) {
+                        alert("The enemy has sunk your Scout Boat!")
+                    }
                 }
             } if (direction == 3) {
                 if (pboard[targetrow][targetcolumn - compattempt].id == "") {
@@ -517,6 +575,9 @@ function computerAttackTarget() {
                     if (pSBlife <= 0) {
                         currentTarget = ""
                     }
+                    if (pSBlife == 0) {
+                        alert("The enemy has sunk your Scout Boat!")
+                    }
                 }
             } if (direction == 4) {
                 if (pboard[targetrow][targetcolumn + compattempt].id == "") {
@@ -528,6 +589,9 @@ function computerAttackTarget() {
                     pSBlife -= 1
                     if (pSBlife <= 0) {
                         currentTarget = ""
+                    }
+                    if (pSBlife == 0) {
+                        alert("The enemy has sunk your Scout Boat!")
                     }
                 }
             }
@@ -603,7 +667,7 @@ function resetGame() {
     while (cACset == false) {
     setComputerAC()}
 
-    
+    alert("Pick Your Ships!")
 }
 
 
