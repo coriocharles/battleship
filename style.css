@@ -7,7 +7,7 @@
     padding-top: 5px;
     width: 20vw;
     justify-content: right;
-    float: right
+    float: center;
 }
 #compboard {
     display: grid;
@@ -17,7 +17,7 @@
     padding-top: 5px;
     width: 20vw;
     justify-content: left;
-    float:right
+    float: center;
 }
 .reset {
     margin: 10px;
@@ -33,7 +33,7 @@ font-size: small;
 background: rgb(59,236,119);
 background: radial-gradient(circle, rgb(225, 240, 230) 12%, rgb(14, 154, 197) 58%);
 border: 1px solid rgb(69, 182, 219);
-font-size: small;
+font-size: center;
 }
 
 .boards {
@@ -88,15 +88,16 @@ body {
     margin-top: 100px;
     text-align: right;
     padding: 2px;
+    float: center;
 }
 .computerboats{
     color: navy;
     width: 30vw;
     margin-top: 140px;
     text-align: left;
+    float: center;
 }
-div {
-}
+
 h3 {
     font-size: smaller;
 }
@@ -170,9 +171,17 @@ form {
 
 
 
-@media screen and (max-width: 800px) {
-  .wins, #playerboard, #computerboard, .playerboats, .computerboats {
+@media screen and (max-width: 1000px) {
+  #playerboard, #compboard, .playerboats, .computerboats {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    text-align: center;
+    justify-content: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 10px;
+  }
+  .boards {
+      display: block;
   }
 }
 
