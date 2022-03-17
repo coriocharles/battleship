@@ -139,14 +139,13 @@ trymove.addEventListener("click", event => {
     let textInput = document.querySelector('#input').value;
     if (subPlaced == false || scoutPlaced == false || ACPlaced == false || BSPlaced == false) {
         alert("place your ships first!")
-    } else if (gameOver()) {
-        alert("the current game has been finished")
-    }
-    else {
+    } else {
     if (textInput != "") {
     attack(textInput)
     document.querySelector('#input').value = ""
     gameOver()
+
+    
     if (!gameOver()) {
         if (currentTarget == ""){
             setTimeout(computerAttack, 1000)
