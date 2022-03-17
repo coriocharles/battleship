@@ -145,6 +145,7 @@ trymove.addEventListener("click", event => {
     document.querySelector('#input').value = ""
     gameOver()
 
+    //test
     
     if (!gameOver()) {
         if (currentTarget == ""){
